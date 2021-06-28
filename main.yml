@@ -232,7 +232,7 @@ Resources:
                 Provider: CodeBuild
               InputArtifacts:
                 - Name: Source
-              OutuputArtifacts:
+              OutputArtifacts:
                 - Name: Build
               Configuration:
                 ProjectName: !Ref BuildProject
