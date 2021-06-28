@@ -189,7 +189,7 @@ Resources:
       ApplicationName: !Ref DeploymentApplication
       DeploymentConfigName: CodeDeployDefault.AllAtOnce # for staging, deploy as fast as possible
       ServiceRoleArn: !GetAtt DeploymentRole.Arn
-      EC2TagFilters: # these filters define how our CodeDeploy will find the EC2 instances to deploy to
+      Ec2TagFilters: # these filters define how our CodeDeploy will find the EC2 instances to deploy to
         - Key: aws:cloudformation:stack-name
           Type: KEY_AND_VALUE
           Value: !Ref AWS::StackName
@@ -270,8 +270,8 @@ Resources:
       RegisterWithThirdParty: true
 
 Outputs:
-  InstanceDNS:
+  InstanceEndpoint:
     Description: The DNS name for the created instance
     Value: !Sub "http://${Instance.PublicDnsName}:8080"
     Export:
-      Name: InstanceDNS
+      Name: InstanceEndpoint

@@ -9,7 +9,7 @@ CODEPIPELINE_BUCKET="$STACK_NAME-$REGION-codepipeline-$AWS_ACCOUNT_ID"
 # Generate a personal access token with repo and admin:repo_hook
 # permissions frmo https://github.com/settings/tokens
 GH_ACCESS_TOKEN=$(cat ~/.github/aws-bootstrap-access-token)
-GH_OWNER=$(cat ~/.github/aws-bootstrap-repo)
+GH_OWNER=$(cat ~/.github/aws-bootstrap-owner)
 GH_REPO=$(cat ~/.github/aws-bootstrap-repo)
 GH_BRANCH=master
 
@@ -48,5 +48,5 @@ aws cloudformation deploy \
 if [ $? -eq 0 ]; then
   aws cloudformation list-exports \
     --profile awsbootstrap \
-    --query "Exports[?Name=='InstanceDNS'].Value"
+    --query "Exports[?Name=='InstanceEndpoint'].Value"
 fi
