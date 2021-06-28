@@ -84,10 +84,10 @@ Resources:
             /home/ec2-user/install: # downloads the CodeDeploy agent install script to install dir and makes it executable
               source: !Sub "https://aws-codedeploy-${AWS::Region}.s3.amazonaws.com/latest/install"
               mode: "000755" # executable
-            commands:
-              00-install-cd-agent: # installs the CodeDeploy agent
-                command: "./install auto"
-                cwd: "/home/ec2-user/"
+          commands:
+            00-install-cd-agent: # installs the CodeDeploy agent
+              command: "./install auto"
+              cwd: "/home/ec2-user/"
     Properties:
       ImageId: !Ref EC2AMI
       InstanceType: !Ref EC2InstanceType
