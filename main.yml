@@ -185,7 +185,7 @@ Resources:
     Type: AWS::CodeDeploy::DeploymentGroup
     DependsOn: Instance
     Properties:
-      DeploymentGroupName:  staging
+      DeploymentGroupName: staging
       ApplicationName: !Ref DeploymentApplication
       DeploymentConfigName: CodeDeployDefault.AllAtOnce # for staging, deploy as fast as possible
       ServiceRoleArn: !GetAtt DeploymentRole.Arn
